@@ -33,6 +33,56 @@ public class LogicBusiness {
 		return sumOf; 
 	} 
 	
+	public long PrimerNumberFactorization(long n) {  
+		for (long c=(long) Math.sqrt(n); c>1; c--) { 
+			if (IsPrime(c)) { 
+				if ((n%c)==0) { 
+					System.out.println(c); 
+					PrimerNumberFactorization(n/c); 
+					break; 
+				}  
+			} 
+		} 
+		return 0; 
+	} 
+	
+	public void test() {
+		int i = 3; 
+		// ++var primer incrementa i despres evalua  
+		// var++ primer evalua i despres incrementa
+        /* i++;
+        // prints 4
+        System.out.println(i);
+        ++i;			   
+        // prints 5
+        System.out.println(i);
+        // prints 6
+        System.out.println(++i);
+        // prints 6 
+        // 1- Mostrar valor 2- Incrementar valor 
+        System.out.println(i++);
+        // prints 7
+        System.out.println(i); */ 
+		/* for (int j=0; j<10;j++) {
+			System.out.println(j); 
+		} 
+		for (int j=0; j<10;++j) {
+			System.out.println(j); 
+		} */ 
+	} 
+	
+	private boolean IsPrime(long n) { 
+		long l = (long) Math.ceil(Math.sqrt(n)); 
+		if (n!=1 && n!=2) {
+			for (long i=2; i<=l; i++) {
+				if ((n%i==0)) {
+					return false; 
+				} 
+			} 
+		} 
+		return true; 
+	} 
+	
 	static int mcd(int a, int b)
     {
         int x=0,nuevob=0;
