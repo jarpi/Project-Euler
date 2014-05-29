@@ -46,6 +46,43 @@ public class LogicBusiness {
 		return 0; 
 	} 
 	
+	public int PalindromeNumbers() { 
+		int max = 0; 
+		for (int i=100; i<999;i++) { 
+			for (int j=999;j>i;j--) {
+				// System.out.println("i" + i + "*j" + j +"=x" +i*j); 
+				boolean result = isPalindrome(i*j); 
+				isPalindrome(999); 
+				if (result) {
+					if (i*j>max) {
+						max = i*j; 
+					}
+				} 
+			} 
+		} 
+		System.out.println(max); 
+		return 0; 
+	} 
+	
+	public boolean isPalindrome(int n) {
+		int numberOfDigits = 0;
+		int palindromeSum = 0; 
+		int k = n; 
+		while (k>0) { 
+			numberOfDigits+=1; 
+			k = k/10; 
+		} 
+		k = n; 
+		for (int i=numberOfDigits-1; i>=0;i--) {
+			palindromeSum += ((k%10)*Math.pow(10,i)); 
+			k = k/10; 
+		} 
+		if (palindromeSum == n) {
+			return true; 
+		}
+		return false; 
+	}
+	
 	public void test() {
 		int i = 3; 
 		// ++var primer incrementa i despres evalua  
