@@ -1,8 +1,18 @@
 package com.testing.project_euler;
 
 public class LogicBusiness {
-	public LogicBusiness() {}
-	public int SumOfMultiplesBelow(double multipleOf, double belowOf) {
+	// DoThing dt;
+	public LogicBusiness() {
+		// Callback method -> By interface (observer pattern) || By instance (IoC) 
+		/* DoThing dt, DoThingImpl dti
+		this.dt = dt; 
+		dt.Methods(); 
+		dti.Methods(); */ 
+	}
+	
+	// 1 
+	public int SumOfMultiplesBelow(double multipleOf, double belowOf) { 
+	
 		// Formula n*(a1+an)/2 
 		/* 
 		 * Explanation: 
@@ -19,6 +29,7 @@ public class LogicBusiness {
 		return (numberOfElements*(firstNumberInSequence+lastNumberInSequence))/2;  
 	} 
 	
+	// 2 
 	public long SumOfFibonacciEvenNumbers() {
 		int n1=1, n2=1, temp=0; 
 		long sumOf = 0; 
@@ -33,9 +44,10 @@ public class LogicBusiness {
 		return sumOf; 
 	} 
 	
+	// 3 
 	public long PrimerNumberFactorization(long n) {  
 		for (long c=(long) Math.sqrt(n); c>1; c--) { 
-			if (IsPrime(c)) { 
+			if (Utils.IsPrime(c)) { 
 				if ((n%c)==0) { 
 					System.out.println(c); 
 					PrimerNumberFactorization(n/c); 
@@ -46,13 +58,14 @@ public class LogicBusiness {
 		return 0; 
 	} 
 	
-	public int PalindromeNumbers() { 
+	// 4 
+	public int PalindromeNumber() { 
 		int max = 0; 
 		for (int i=100; i<999;i++) { 
 			for (int j=999;j>i;j--) {
 				// System.out.println("i" + i + "*j" + j +"=x" +i*j); 
-				boolean result = isPalindrome(i*j); 
-				isPalindrome(999); 
+				boolean result = Utils.isPalindrome(i*j); 
+				Utils.isPalindrome(999); 
 				if (result) {
 					if (i*j>max) {
 						max = i*j; 
@@ -64,27 +77,8 @@ public class LogicBusiness {
 		return 0; 
 	} 
 	
-	public boolean isPalindrome(int n) {
-		int numberOfDigits = 0;
-		int palindromeSum = 0; 
-		int k = n; 
-		while (k>0) { 
-			numberOfDigits+=1; 
-			k = k/10; 
-		} 
-		k = n; 
-		for (int i=numberOfDigits-1; i>=0;i--) {
-			palindromeSum += ((k%10)*Math.pow(10,i)); 
-			k = k/10; 
-		} 
-		if (palindromeSum == n) {
-			return true; 
-		}
-		return false; 
-	}
-	
 	public void test() {
-		int i = 3; 
+		// int i = 3; 
 		// ++var primer incrementa i despres evalua  
 		// var++ primer evalua i despres incrementa
         /* i++;
@@ -107,41 +101,4 @@ public class LogicBusiness {
 			System.out.println(j); 
 		} */ 
 	} 
-	
-	private boolean IsPrime(long n) { 
-		long l = (long) Math.ceil(Math.sqrt(n)); 
-		if (n!=1 && n!=2) {
-			for (long i=2; i<=l; i++) {
-				if ((n%i==0)) {
-					return false; 
-				} 
-			} 
-		} 
-		return true; 
-	} 
-	
-	static int mcd(int a, int b)
-    {
-        int x=0,nuevob=0;
-        x = a;
- 
-        if (a < b) {
-            a = b;
-            b = x;
-            return mcd(a,b);
-        }
-        else if (b != 0) {
-            nuevob = a % b;
-            a = b;
-            b = nuevob;
-            return mcd(a,b);
-        }
-        return a;
-    }
- 
-    static int mcm(int a, int b) {
-        int m=0;
-        m=mcd(a,b);
-        return(m*(a/m)*(b/m));
-    }
 }
