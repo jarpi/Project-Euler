@@ -45,17 +45,19 @@ public class BusinessLogic {
 	} 
 	
 	// 3 
-	public long PrimerNumberFactorization(long n) {  
+	public long PrimerNumberFactorization(long n) {
+		long res = 0; 
 		for (long c=(long) Math.sqrt(n); c>1; c--) { 
 			if (Utils.IsPrime(c)) { 
 				if ((n%c)==0) { 
-					System.out.println(c); 
+					// System.out.println(c); 
 					PrimerNumberFactorization(n/c); 
+					res = c; 
 					break; 
 				}  
 			} 
 		} 
-		return 0; 
+		return res; 
 	} 
 	
 	// 4 
@@ -73,10 +75,50 @@ public class BusinessLogic {
 				} 
 			} 
 		} 
-		System.out.println(max); 
-		return 0; 
+		// System.out.println(max); 
+		return max; 
 	} 
 	
+	// 5 
+	public long SmallestMultiple(int lowerLimit, int upperLimit) { 
+		// Good solution, but too slow 
+		long i = 1; // Smallest multiple 
+		int k = 1; // 1...upperLimit 
+		boolean exitFlag = false; 
+		while (!exitFlag) {  
+			if (i%k==0&&k<upperLimit) {
+				k +=1; 
+			} else if (k==upperLimit) {
+				break; 
+			} else { 
+				i+=1; 
+				k = 1; 
+			} 
+		} 
+		return i; 
+	} 
+	// 5 
+	public long SmallestMultipleImprovement(int lowerLimit, int upperLimit) { 
+		// Good solution, but too slow  
+		// Could be used LCM(a,b) algorithm, but this is fastest 
+		long res = 1; 
+		long primeProduct = 1; 
+		// Search for prime numbers 
+		for (int i=1; i<=upperLimit;i++) {
+			if (Utils.IsPrime(i)) { 
+				primeProduct = primeProduct * i; 
+			} 
+		} 
+		res = primeProduct; 
+		for (int j=lowerLimit;j<21||res%j==0;j++) { 
+			if (res%j!=0) {
+				res += primeProduct; 
+				j=lowerLimit; 
+			} 
+		} 
+		return res; 
+	} 
+		
 	public void test() {
 		// int i = 3; 
 		// ++var primer incrementa i despres evalua  

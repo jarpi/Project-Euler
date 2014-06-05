@@ -35,7 +35,8 @@ public class Main {
 			System.out.println("1- First exercise - arithmetic serie");
 			System.out.println("2- Second exercise - Sum of fibonacci even numbers");
 			System.out.println("3- Third exercise - Prime factorization");
-			System.out.println("4- Fourth exercise - Palindrome Numbers");  
+			System.out.println("4- Fourth exercise - Palindrome Numbers");
+			System.out.println("5- Fifth exercise - Smallest Multiple");  
 			System.out.println("0- Exit"); 
 			option = s.nextInt(); 
 			switch (option) {
@@ -53,14 +54,19 @@ public class Main {
 				break;
 			case 2: 
 				System.out.println("The sum of fibonacci even numbers is: " + lb.SumOfFibonacciEvenNumbers()); 
+				break; 
 			case 3: 
-				lb.test(); 
+				// lb.test(); 
 				// System.out.println("IsPrime(" + i +"): " + lb.IsPrime(i));
 				long l = new Long(600851475143L);  
-				lb.PrimerNumberFactorization(l);
+				System.out.println(lb.PrimerNumberFactorization(l));
+				break; 
 			case 4: 
 				System.out.println("Palindrome number: " + lb.PalindromeNumber()); 
-			}
+				break; 
+			case 5: 
+				System.out.println("Smallest multiple: " + lb.SmallestMultipleImprovement(11, 20)); 
+			} 
 		} 
 	}
 }
