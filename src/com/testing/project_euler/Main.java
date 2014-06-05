@@ -1,14 +1,33 @@
 package com.testing.project_euler;
 
+import java.lang.reflect.Method;
 import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String args[]) { 
-		LogicBusiness lb = new LogicBusiness(); 
+		BusinessLogic lb = new BusinessLogic(); 
 		boolean exit = false; 
 		Scanner s = new Scanner(System.in);
 		int option = 0; 
+		/* Get methods of class 
+		 * If they have an annotation, run it 
+		 */
+		/* AnnotationRunner runner = new AnnotationRunner();
+        Method[] methods = runner.getClass().getMethods();
+        for (Method method : methods) {
+            CanRun annos = method.getAnnotation(CanRun.class);
+            if (annos != null) {
+                try {
+                    method.invoke(runner);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } */ 
+		/* HelloWorldAnonymousClasses myApp =
+	            new HelloWorldAnonymousClasses();
+	        myApp.sayHello();*/ 
 		while (!exit) { 
 			System.out.println("Project Euler menu assistant");
 			System.out.println("Type the number you want to see result and a little explanation");
