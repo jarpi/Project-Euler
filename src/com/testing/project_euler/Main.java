@@ -10,6 +10,7 @@ public class Main {
 		boolean exit = false; 
 		Scanner s = new Scanner(System.in);
 		int option = 0; 
+
 		/* Get methods of class 
 		 * If they have an annotation, run it 
 		 */
