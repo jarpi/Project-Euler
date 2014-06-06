@@ -118,7 +118,9 @@ public class BusinessLogic {
 		} 
 		return res; 
 	} 
-		
+	// 5 TODO: Implement LCM(a,b) algorithm 
+	
+	
 	public void test() {
 		// int i = 3; 
 		// ++var primer incrementa i despres evalua  
