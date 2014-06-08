@@ -1,6 +1,8 @@
 package com.testing.project_euler;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -37,8 +39,18 @@ public class Main {
 			System.out.println("3- Third exercise - Prime factorization");
 			System.out.println("4- Fourth exercise - Palindrome Numbers");
 			System.out.println("5- Fifth exercise - Smallest Multiple");  
+			System.out.println("6- Sixth exercise - Sum of squares - squares sum");
+			System.out.println("7- Seventh exercise - find prime");
 			System.out.println("0- Exit"); 
-			option = s.nextInt(); 
+			try { 
+				// TODO: Fix input method to clear buffer 
+				option = s.nextInt(); 
+			} catch (InputMismatchException e) { 
+				System.out.println("\nInput not recognized");
+				// System.exit(0); 
+				option = 99; 
+				s.nextLine(); 
+			} 
 			switch (option) {
 			case 0: 
 				exit=true;
@@ -66,6 +78,15 @@ public class Main {
 				break; 
 			case 5: 
 				System.out.println("Smallest multiple: " + lb.SmallestMultipleImprovement(11, 20)); 
+				break; 
+			case 6: 
+				System.out.println("Sum of squares - Squares sum: " + lb.SumSquaresSquaresSumDiff(100)); 
+				break; 
+			case 7: 
+				System.out.println("Find prime: " + lb.findIndividualPrime(10001)); 
+				break; 
+			case 99: 
+				break; 
 			} 
 		} 
 	}

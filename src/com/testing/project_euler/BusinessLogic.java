@@ -120,6 +120,35 @@ public class BusinessLogic {
 	} 
 	// 5 TODO: Implement LCM(a,b) algorithm 
 	
+	// 6 
+	public long SumSquaresSquaresSumDiff(int upperLimit) {
+		long sumSquare = 0, squareSum = 0; 
+		
+		for (int i=1; i<=upperLimit;++i) {
+			sumSquare += Math.pow(i, 2);
+			squareSum += i; 
+		} 
+		
+		return (long) (Math.pow(squareSum, 2)-sumSquare); 
+	} 
+	
+	// 7 
+	public long findIndividualPrime(int nPrime) {
+		int totalPrimesGenerated = 0; 
+		long primeReached = 0; 
+		for (long i=2; i<=nPrime*nPrime; i++) { 
+			if (Utils.IsPrime(i)) {
+				totalPrimesGenerated += 1;
+				primeReached = i; 
+			} 
+			if (totalPrimesGenerated>=nPrime) {
+				break;  
+			}
+		} 
+		return primeReached; 
+	} 
+	
+	
 	
 	public void test() {
 		// int i = 3; 
