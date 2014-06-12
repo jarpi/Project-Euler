@@ -148,7 +148,11 @@ public class BusinessLogic {
 		return primeReached; 
 	} 
 	
-	
+	// 8 
+	public long findProductAdjacentDigits(int nAdjacentDigits) {
+		
+		return 0; 
+	}
 	
 	public void test() {
 		// int i = 3; 
