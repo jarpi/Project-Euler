@@ -16,7 +16,7 @@ public class Utils {
 	
 	static int mcd(int a, int b)
     {
-        int x=0,nuevob=0;
+        int x=0,bb=0;
         x = a;
  
         if (a < b) {
@@ -25,9 +25,9 @@ public class Utils {
             return mcd(a,b);
         }
         else if (b != 0) {
-            nuevob = a % b;
+            bb = a % b;
             a = b;
-            b = nuevob;
+            b = bb;
             return mcd(a,b);
         }
         return a;
